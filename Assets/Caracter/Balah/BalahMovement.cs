@@ -1,12 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BalahMovement : MonoBehaviour
 {
-    public float maxHP;
-    public float nowHP;
-
     public Vector2 inputVec;
     public float defaultSpeed;
     float speed;
@@ -30,6 +28,18 @@ public class BalahMovement : MonoBehaviour
 
         Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + nextVec);
+
+
+        //디버그용 대시
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (BalahData.instance.nowSP > 100)
+            {
+                BalahData.instance.nowSP -= 100;
+                Debug.Log("대시함");
+            }
+        }
+
 
         if (Vector2.zero == nextVec) {
             anim.SetBool("move", false);
