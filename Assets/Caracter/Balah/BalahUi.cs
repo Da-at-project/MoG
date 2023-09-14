@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+
 public class BalahUi : MonoBehaviour
 {
     private void Awake()
@@ -11,7 +12,6 @@ public class BalahUi : MonoBehaviour
         mySlider = GetComponent<Slider>();
 
     }
-
 
     private void LateUpdate()
     {
@@ -28,7 +28,7 @@ public class BalahUi : MonoBehaviour
                 mySlider.value = curSp / maxSp;
                 break;
             case InfoType.HpText:
-                if (EventSystem.current.IsPointerOverGameObject() == true) // 마우스 커서 인식
+                if (EventSystem.current.IsPointerOverGameObject() == true ) // 마우스 커서 인식
                     myText.text = string.Format("{0:F0} / {1:F0}", BalahData.instance.nowHP, BalahData.instance.maxHP);
                 else
                     myText.text = string.Format("");
@@ -39,16 +39,17 @@ public class BalahUi : MonoBehaviour
                 else
                     myText.text = string.Format("");
                 break;
+
         }
     }
-
+    
 
     //변수
     public enum InfoType { Hp, HpText, Sp, SpText }
 
     public InfoType type;
 
-    Slider mySlider;
+    public Slider mySlider;
 
     Text myText;
 }
