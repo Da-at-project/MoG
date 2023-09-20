@@ -18,7 +18,7 @@ public class BtnTimer : MonoBehaviour
         time += Time.deltaTime;
         if(time >= maxTime)
         {
-            transform.SetAsLastSibling();
+            base.transform.SetAsLastSibling();
         }
     }
 }
