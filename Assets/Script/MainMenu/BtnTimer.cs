@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BtnTimer : MonoBehaviour
 {
-    public Transform transform;
+    public new Transform transform;
 
     float maxTime = 20f;
     float time;
