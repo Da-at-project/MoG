@@ -1,11 +1,20 @@
-ADD : UI bar
-주인공의 체력과 기력을 나타내는 바 형태의 UI를 추가.
-fade in, fade out 추가
+# MoG
 
-UPDATE : Something
-balahmovement클래스 에 있던 hp변수를 balahdata클래스를 만들어 옮겼습니다.
-/////////////////////////////////
-gamemanager 결국 안썼습니다.
-화면에 버튼 두개는 디버그 용입니다.
-패널로 페이드인아웃 구현했으며 패널은 페이드 인아웃 진행될때만 setactive(true)로 만들어서 진행합니다.
+## Commit Message Rule
 
+> 모든 메시지에는 설명을 첨부 바랍니다. ex) <br> ADD : UI bar <br> 주인공의 체력과 기력을 나타내는 바 형태의 UI를 추가. <br>
+
+### ADD : Something
+> Something을 추가하였을 때 사용합니다.
+
+### FIX : Something
+> Something의 올바르지 않은 동작을 수정했을 때 사용합니다.
+
+### UPDATE : Something
+> Something의 기능을 수정, 추가, 보완하였을 때 사용합니다.
+
+### REFACTOR : Something
+> Something의 코드에 전면 수정이 있었을 때 사용합니다.
+
+### MAKE : Something
+> Something의 기존 동작의 변경을 명시할 때 사용합니다. <br> ex) object를 read-only로 변경
