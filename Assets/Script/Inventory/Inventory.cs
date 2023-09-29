@@ -46,4 +46,22 @@ public class Inventory : MonoBehaviour
             print("슬롯이 가득 차 있습니다.");
         }
     }
+
+    public void UseItem(ItemData _item) 
+    {
+        if (items.Count < slots.Length)
+        {
+            if (_item.itemName == "Axe")
+            {
+                items.Remove(items[0]);
+                FreshSlot();
+                Debug.Log("도끼를 먹었습니다ㄷㄷ");
+            }
+        }
+        else
+        {
+            print("슬롯이 비어있습니다.");
+        }
+
+    }
 }
