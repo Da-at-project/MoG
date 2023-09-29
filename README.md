@@ -7,6 +7,9 @@
 ### ADD : Something
 > Something을 추가하였을 때 사용합니다.
 
+> 인벤토리 구현
+> 아이템데이터 스튜, 훈련용검, 5급인증서 추가
+
 ### FIX : Something
 > Something의 올바르지 않은 동작을 수정했을 때 사용합니다.
 
