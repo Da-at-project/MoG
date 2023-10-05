@@ -4,31 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inven : MonoBehaviour
+public class InvenSc : MonoBehaviour
 {
-    public Inven inven;
-    public bool checkActive;
-    private void Start()
-    {
-        inven = GetComponent<Inven>();
-    }
-    private void Awake()
-    {
-        inven.gameObject.SetActive(false);
-        checkActive = false;
-    }
+
+    public GameObject setActive;
+    private bool isFalse = false;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) & checkActive == false)
-        {
-            inven.gameObject.SetActive(true);
-            checkActive = true;
-        }
 
-        if (Input.GetKeyDown(KeyCode.C) & checkActive == true)
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            inven.gameObject.SetActive(false);
-            checkActive = false;
+            setActive.SetActive(isFalse = !isFalse);
         }
     }
 }
