@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
     private Transform slotParent;
     [SerializeField]
     private Slot[] slots;
-    int qwer;
+    int slotNum;
     private void OnValidate()
     {
         slots = slotParent.GetComponentsInChildren<Slot>();
@@ -36,8 +36,6 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(ItemData _item)
     {
-        // if (items.Count < slots.Length)
-        // {
         for (int i = 0; i < 10; i++)
         {
             if (items[i] == null)
@@ -45,13 +43,12 @@ public class Inventory : MonoBehaviour
                 items[i] = _item;
                 break;
             }
+            if (i == 10)
+            {
+                Debug.Log("슬롯이 다차있어요");
+            }
         }
         FreshSlot();
-        // }
-        // else
-        // {
-        //     print("슬롯이 가득 차 있습니다.");
-        // }
     }
 
     public void UseItem(ItemData _item) 
@@ -59,11 +56,11 @@ public class Inventory : MonoBehaviour
 
         if (_item.itemName == "Axe")
         {
-            if (items[qwer] != null)
+            if (items[slotNum] != null)
             {
-                items[qwer] = null;
+                items[slotNum] = null;
                 FreshSlot();
-                Debug.Log("rwqe");
+                Debug.Log("도끼 사용");
             }
             else
             {
@@ -74,7 +71,7 @@ public class Inventory : MonoBehaviour
 
     public void CallUseItem(int qwe)
     {
-        qwer = qwe;
+        slotNum = qwe;
         
     }
 }
