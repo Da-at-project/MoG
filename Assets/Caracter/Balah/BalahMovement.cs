@@ -7,8 +7,7 @@ using TMPro;
 
 public class BalahMovement : MonoBehaviour
 {
-    public TextMeshProUGUI tmpUgui;
-    public GameObject Target;
+    public SpriteRenderer rend;
 
     Vector2 moveDirection; // 방향을 나타내는 변수
     Vector2 lastDirection; // 마지막으로 바라본 방향
@@ -26,20 +25,20 @@ public class BalahMovement : MonoBehaviour
     CircleCollider2D circleCol;
     public LayerMask layerMask;
 
-    bool scanStarted = false; // 스캔이 시작되었는지 여부
 
     void Awake()
     {
-        Target.SetActive(false);
-        tmpUgui = Target.GetComponentInChildren<TextMeshProUGUI>();
+        rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
+
+        float h = anim.GetFloat("h");
 
         // 입력 벡터를 정규화하여 방향 벡터 계산
         moveDirection = inputVec.normalized;
@@ -70,15 +69,14 @@ public class BalahMovement : MonoBehaviour
             speed = defaultSpeed;
         }
 
-        if (Input.GetAxisRaw("Scan") != 0 && !scanStarted)
-        {
-            StartScanning();
-            scanStarted = true;
-        }
 
-        if (Input.GetAxisRaw("Scan") == 0)
+        if (Input.GetKeyDown(KeyCode.X) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            scanStarted = false;
+            if (h > 0)
+            {
+                rend.flipX = true;
+            }
+            anim.SetTrigger("Attack");
         }
 
         if (moveDirection != Vector2.zero)
@@ -96,36 +94,12 @@ public class BalahMovement : MonoBehaviour
         rb.velocity = inputVec * speed;
     }
 
-    void StartScanning()
+    void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, lastDirection, Mathf.Infinity);
-        if (hit.collider != null && hit.collider.CompareTag("object"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            ObjectManager objectManager = hit.collider.GetComponent<ObjectManager>();
-
-            if (objectManager != null)
-            {
-                // ObjectManager의 QuestID 변수 값 가져오기
-                int questIDValue = objectManager.QuestID;
-
-                switch (questIDValue)
-                {
-                    case 0:
-                        Debug.Log("QuestID : " + questIDValue);
-                        Target.SetActive(true);
-                        break;
-                    case 1:
-                        Debug.Log("QuestID : " + questIDValue);
-                        Target.SetActive(true);
-                        break;
-                }
-
-                // 텍스트 수정:
-                if (tmpUgui != null)
-                {
-                    tmpUgui.text = "Quest ID: " + questIDValue; // 텍스트 변경
-                }
-            }
+            rend.flipX = false;
         }
     }
+
 }
