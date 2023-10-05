@@ -61,7 +61,7 @@ public class GiantRatAI : MonoBehaviour
         }
         else
         {
-            Debug.Log("Move");
+            //Debug.Log("Move");
             Vector3 dir = (pos - transform.position).normalized;
             Vector2 nextVec = dir * speed * Time.fixedDeltaTime;
             rb.MovePosition(rb.position + nextVec);
