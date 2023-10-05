@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Village1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: d2733bee28ffbb843a0ddb7df375ab93
+  - enabled: 1
+    path: Assets/Scenes/BalahRoom.unity
+    guid: 88b7bfa3393ef8444a5555f9d0dcbbf7
+  - enabled: 1
+    path: Assets/Scenes/BalahHouse.unity
+    guid: c61ba8f62f79fa24cbea990ba5a2e5e9
+  - enabled: 1
+    path: Assets/Scenes/Village(past).unity
+    guid: fae5c577087234646945431078169a33
   m_configObjects: {}

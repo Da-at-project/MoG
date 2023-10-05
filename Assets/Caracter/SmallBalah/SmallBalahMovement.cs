@@ -5,21 +5,46 @@ using UnityEngine;
 
 public class SmallBalahMovement : MonoBehaviour
 {
+    static public SmallBalahMovement instance;
+
     public Vector2 inputVec;
     public float defaultSpeed;
     //float speed;
 
     Rigidbody2D rb;
-    Animator anim;
+    public Animator anim;
+
+    public string currentMap;
+    public string beforeMap;
+
+    private float waitTime;
+    public GameObject ui;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
+        if (instance == null)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            rb = GetComponent<Rigidbody2D>();
+            anim = GetComponentInChildren<Animator>();
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void FixedUpdate()
     {
+        if (waitTime > 0)
+        {
+            waitTime -= Time.deltaTime;
+            //Debug.Log(waitTime);
+            rb.velocity = new Vector2(0, 0);
+            return;
+        }
+
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
 
@@ -48,5 +73,10 @@ public class SmallBalahMovement : MonoBehaviour
         }
 
         rb.velocity = inputVec;
+    }
+
+    public void Wait(float waitTime)
+    {
+        this.waitTime = waitTime;
     }
 }
