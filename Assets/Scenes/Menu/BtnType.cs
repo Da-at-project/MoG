@@ -14,7 +14,7 @@ public class BtnType : MonoBehaviour
         {
             case BTNType.New:
                 Debug.Log("New Game");
-                SceneManager.LoadScene("BalahHouse");
+                SceneManager.LoadScene("BalahRoom");
                 break;
             case BTNType.Continue:
                 Debug.Log("Continue Game");

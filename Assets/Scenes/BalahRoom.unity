@@ -160,7 +160,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 3000, y: 3000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &85110495
 Animator:
@@ -1400,7 +1400,7 @@ GameObject:
   - component: {fileID: 1805979889}
   m_Layer: 0
   m_Name: Scnen1
-  m_TagString: Scene
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1461,6 +1461,7 @@ GameObject:
   - component: {fileID: 2120319887}
   - component: {fileID: 2120319889}
   - component: {fileID: 2120319888}
+  - component: {fileID: 2120319890}
   m_Layer: 0
   m_Name: BalahRoom
   m_TagString: Untagged
@@ -1645,6 +1646,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.8213327, y: 0.74331}
   m_EdgeRadius: 0
+--- !u!320 &2120319890
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120319882}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &3348721270327083175
 PrefabInstance:
   m_ObjectHideFlags: 0
