@@ -178,8 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
-  tmpUgui: {fileID: 0}
-  Target: {fileID: 0}
   maxHP: 100
   nowHP: 0
   inputVec: {x: 0, y: 0}
@@ -535,6 +533,7 @@ GameObject:
   - component: {fileID: 869834340}
   - component: {fileID: 869834339}
   - component: {fileID: 869834344}
+  - component: {fileID: 869834345}
   m_Layer: 0
   m_Name: Salamander
   m_TagString: Untagged
@@ -682,6 +681,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.023489466, y: -0.14094321}
   m_Size: {x: 0.9977401, y: 0.7158551}
   m_Direction: 1
+--- !u!114 &869834345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869834338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fd0f73398387d478e4be5e1d9fb9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 15
+  nowHP: 15
+  damage: 5
 --- !u!1 &905525850
 GameObject:
   m_ObjectHideFlags: 0
