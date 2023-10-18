@@ -7,6 +7,7 @@ public class BtnType : MonoBehaviour
 {
     public BTNType currentType;
     public Transform buttonScale;
+    Vector3 defaultScale;
 
     public void OnBtnClick()
     {

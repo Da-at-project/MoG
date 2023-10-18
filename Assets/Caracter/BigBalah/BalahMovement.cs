@@ -9,8 +9,6 @@ public class BalahMovement : MonoBehaviour
     public float defaultSpeed;
     float speed;
 
-    public float dashSP = 30;
-
     Rigidbody2D rb;
     Animator anim;
 
@@ -23,37 +21,25 @@ public class BalahMovement : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
-    private void Update()
-    {
-        //ï¿½ï¿½ï¿½ï¿½×¿ï¿½ ï¿½ï¿½ï¿½
-        if (Input.GetKeyDown("space"))
-        {
-            if (BalahData.instance.nowSP > dashSP)
-            {
-                BalahData.instance.nowSP -= dashSP;
-                Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½");
-            }
-        }
-    }
-
     void FixedUpdate()
     {
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetAxisRaw("Run") != 0f)
-        {
-            anim.SetBool("run", true);
-            speed = defaultSpeed * 2f;
-        }
-        else
-        {
-            anim.SetBool("run", false);
-            speed = defaultSpeed;
-        }
-
         Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + nextVec);
+
+
+        //µð¹ö±×¿ë ´ë½Ã
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (BalahData.instance.nowSP > 100)
+            {
+                BalahData.instance.nowSP -= 100;
+                Debug.Log("´ë½ÃÇÔ");
+            }
+        }
+
 
         if (Vector2.zero == nextVec) {
             anim.SetBool("move", false);
@@ -65,6 +51,15 @@ public class BalahMovement : MonoBehaviour
             anim.SetFloat("v", inputVec.y);
         }
 
-        rb.velocity = inputVec;
+        if (Input.GetAxisRaw("Run") != 0f) {
+            anim.SetBool("run", true);
+            speed = defaultSpeed * 2f;
+        } 
+        else {
+            anim.SetBool("run", false);
+            speed = defaultSpeed;
+        }
+
+        rb.velocity = inputVec * speed;
     }
 }

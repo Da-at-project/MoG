@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BalahData : MonoBehaviour
 {
-    private void Awake()
-    {
-        instance = this;
-    }
-
     private void Start()
     {
         nowHP = maxHP;
         nowSP = maxSP;
+    }
+
+    private void Awake()
+    {
+        instance = this;
     }
 
     void FixedUpdate()
@@ -20,8 +20,9 @@ public class BalahData : MonoBehaviour
         if (Time.time > _nextTime)
         {
             _nextTime = Time.time + _pointTime;
+
             
-            if (nowSP < maxSP) //spÈ¸ï¿½ï¿½
+            if (nowSP < maxSP) //spÈ¸º¹
                 nowSP++;
             else
                 nowSP = maxSP;
@@ -29,10 +30,13 @@ public class BalahData : MonoBehaviour
             if (nowSP < 0)
                 nowSP = 0;
 
-            if (nowHP > maxHP) //hpï¿½ï¿½ï¿½ï¿½
+            if (nowHP > maxHP) //hp°íÁ¤
                 nowHP = maxHP;
+
         }
+
     }
+
 
     public static BalahData instance;
 
@@ -41,13 +45,15 @@ public class BalahData : MonoBehaviour
 
     public float nowHP;
 
-    public float maxSP = 100;
+    public float maxSP = 1000;
 
     public float nowSP;
 
     [Header("# sp regen control")]
-    private float _pointTime = 0.1f; // spÈ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+    private float _pointTime = 0.1f; // spÈ¸º¹ µô·¹ÀÌ ½Ã°£
 
-    private float _nextTime = 0.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+    private float _nextTime = 0.0f; // ´ÙÀ½¹ø ½ÇÇàÇÒ ½Ã°£
+
+
 
 }
