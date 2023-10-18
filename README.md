@@ -7,7 +7,7 @@
 ### ADD : Something
 > Something을 추가하였을 때 사용합니다.
 
-> 인벤토리 완성했습니다. asset에서 +눌러서 아이템 추가 할 수 있고, Inventory script에서 debug.log부분 수정해서 발생 이벤트 넣을 수 있습니다.
+> 적 체력 시스템, 적 체력 ui, 발라공격모션과 허수아비 피격 모션 있으면 피격도 완전히 구현하겠습니다. (현재 피격함수만)
 
 ### FIX : Something
 > Something의 올바르지 않은 동작을 수정했을 때 사용합니다.
