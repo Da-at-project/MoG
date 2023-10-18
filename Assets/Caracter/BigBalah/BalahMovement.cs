@@ -2,9 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
+[AddComponentMenu("UI/TextMeshPro - Text (UI)", 11)]
 
 public class BalahMovement : MonoBehaviour
 {
+    public SpriteRenderer rend;
+
+    Vector2 moveDirection; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    Vector2 lastDirection; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶ï¿½ ï¿½ï¿½ï¿½ï¿½
+
+    public float maxHP;
+    public float nowHP;
+
     public Vector2 inputVec;
     public float defaultSpeed;
     float speed;
@@ -17,29 +28,38 @@ public class BalahMovement : MonoBehaviour
     CircleCollider2D circleCol;
     public LayerMask layerMask;
 
+
     void Awake()
     {
+        rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
     }
 
-    private void Update()
-    {
-        //µð¹ö±×¿ë ´ë½Ã
-        if (Input.GetKeyDown("space"))
-        {
-            if (BalahData.instance.nowSP > dashSP)
-            {
-                BalahData.instance.nowSP -= dashSP;
-                Debug.Log("´ë½ÃÇÔ");
-            }
-        }
-    }
-
-    void FixedUpdate()
+    void Update()
     {
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
+
+        float h = anim.GetFloat("h");
+
+        // ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+        moveDirection = inputVec.normalized;
+
+        Vector2 nextVec = moveDirection * speed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + nextVec);
+
+        if (Vector2.zero == nextVec)
+        {
+            anim.SetBool("move", false);
+        }
+        else
+        {
+            anim.SetBool("move", true);
+
+            anim.SetFloat("h", inputVec.x);
+            anim.SetFloat("v", inputVec.y);
+        }
 
         if (Input.GetAxisRaw("Run") != 0f)
         {
@@ -52,19 +72,37 @@ public class BalahMovement : MonoBehaviour
             speed = defaultSpeed;
         }
 
-        Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + nextVec);
 
-        if (Vector2.zero == nextVec) {
-            anim.SetBool("move", false);
-        } 
-        else {
-            anim.SetBool("move", true);
-
-            anim.SetFloat("h", inputVec.x);
-            anim.SetFloat("v", inputVec.y);
+        if (Input.GetKeyDown(KeyCode.X) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            if (h > 0)
+            {
+                rend.flipX = true;
+            }
+            anim.SetTrigger("Attack");
         }
 
-        rb.velocity = inputVec;
+        if (moveDirection != Vector2.zero)
+        {
+            lastDirection = moveDirection;
+        }
+        Debug.DrawRay(transform.position, lastDirection, Color.red);
+
+        moveDirection.x = Mathf.RoundToInt(inputVec.x);     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Â¿ï¿½)
+        moveDirection.y = Mathf.RoundToInt(inputVec.y);     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+
+        lastDirection.x = Mathf.RoundToInt(lastDirection.x); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Â¿ï¿½)
+        lastDirection.y = Mathf.RoundToInt(lastDirection.y); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+
+        rb.velocity = inputVec * speed;
     }
+
+    void FixedUpdate()
+    {
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            rend.flipX = false;
+        }
+    }
+
 }
