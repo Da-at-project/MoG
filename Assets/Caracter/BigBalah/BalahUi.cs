@@ -10,7 +10,6 @@ public class BalahUi : MonoBehaviour
     {
         myText = GetComponent<Text>();
         mySlider = GetComponent<Slider>();
-
     }
 
     private void LateUpdate()
@@ -39,14 +38,11 @@ public class BalahUi : MonoBehaviour
                 else
                     myText.text = string.Format("");
                 break;
-
         }
     }
     
-
     //º¯¼ö
     public enum InfoType { Hp, HpText, Sp, SpText }
-
     public InfoType type;
 
     public Slider mySlider;
