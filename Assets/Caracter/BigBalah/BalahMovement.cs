@@ -15,7 +15,7 @@ public class BalahMovement : MonoBehaviour
     public float nowHP;
     public float Damage;
 
-    public Transform pos;
+    //public Transform pos;
     public Vector2 boxSize;
 
     public bool invinc = false;
@@ -70,19 +70,20 @@ public class BalahMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
-            foreach (Collider2D collider in collider2Ds)
+            Debug.Log("È÷È÷");
+            //Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
+            /*foreach (Collider2D collider in collider2Ds)
             {
                 if(collider.tag == "Enemy")
                 {
                     collider.GetComponent<Enemy>().OnDamage(5);
                 }
-            }
+            }*/
             if (h > 0)
             {
                 rend.flipX = true;
             }
-            anim.SetTrigger("Attack");
+            anim.Play("Attack");
         }
 
         if (moveDirection != Vector2.zero)

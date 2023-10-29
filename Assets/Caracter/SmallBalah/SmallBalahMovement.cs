@@ -10,7 +10,7 @@ public class SmallBalahMovement : MonoBehaviour
     public float defaultSpeed;
     //float speed;
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     public Animator anim;
 
     public string currentMap;
@@ -77,5 +77,6 @@ public class SmallBalahMovement : MonoBehaviour
     public void Wait(float waitTime)
     {
         this.waitTime = waitTime;
+        Debug.Log("Wait for " + waitTime);
     }
 }

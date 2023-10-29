@@ -21,6 +21,6 @@ public class RatHp : MonoBehaviour
     }
     private void Update()
     {
-        HpBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, -0.8f, 0));
+        HpBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, -1.2f, 0));
     }
 }

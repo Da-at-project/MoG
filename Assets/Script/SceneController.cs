@@ -10,31 +10,28 @@ public class SceneController : MonoBehaviour
     private SmallBalahMovement smallBalah;
 
     private PlayableDirector pd;
-    public TimelineAsset[] ta;
+    public TimelineAsset ta;
+
+    public float waitTime = 0f;
+    public int taID = 0;
 
     private void Start()
     {
         instance = this;
         smallBalah = FindObjectOfType<SmallBalahMovement>();
         pd = GetComponent<PlayableDirector>();
-
-        //smallBalah.Wait(12f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Scene")
+        Debug.Log(collision.name);
+        if (collision.name == "SmallBalah")
         {
-            
+            Debug.Log("play");
+            smallBalah.Wait(waitTime);
+            pd.Play(ta);
+            SmallBalahData.instance.scene.notPlayed[taID] = true;
         }
-        if(collision.gameObject.name == "SmallBalah")
-        {
-            Debug.Log("glgl");
-            smallBalah.anim.Play("SmallBalahDead");
-        }
-        pd.Play(ta[0]);
-        //collision.gameObject.SetActive(false);
-        smallBalah.Wait(12f);
     }
 
 }
