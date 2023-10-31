@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BalahMovement : MonoBehaviour
 {
-    public SpriteRenderer rend;
+    SpriteRenderer rend;
     Rigidbody2D rb;
     Animator anim;
 
@@ -68,29 +68,12 @@ public class BalahMovement : MonoBehaviour
             speed = defaultSpeed;
         }
 
-        if (Input.GetKeyDown(KeyCode.X) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-        {
-            Debug.Log("히히");
-            //Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
-            /*foreach (Collider2D collider in collider2Ds)
-            {
-                if(collider.tag == "Enemy")
-                {
-                    collider.GetComponent<Enemy>().OnDamage(5);
-                }
-            }*/
-            if (h > 0)
-            {
-                rend.flipX = true;
-            }
-            anim.Play("Attack");
-        }
+        Attack();
 
         if (moveDirection != Vector2.zero)
         {
             lastDirection = moveDirection;
         }
-        Debug.DrawRay(transform.position, lastDirection, Color.red);
 
         moveDirection.x = Mathf.RoundToInt(inputVec.x);     // 정수로 고정(좌우)
         moveDirection.y = Mathf.RoundToInt(inputVec.y);     // 정수로 고정(상하)
@@ -99,6 +82,65 @@ public class BalahMovement : MonoBehaviour
         lastDirection.y = Mathf.RoundToInt(lastDirection.y); // 정수로 고정(상하)
 
         rb.velocity = inputVec * speed;
+    }
+
+    void Attack()
+    {
+        if (!Input.GetMouseButtonDown(0) || anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            return;
+
+        //Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
+        /*foreach (Collider2D collider in collider2Ds)
+        {
+            if(collider.tag == "Enemy")
+            {
+                collider.GetComponent<Enemy>().OnDamage(5);
+            }
+        }*/
+
+        Vector2 mPosition = Input.mousePosition; //마우스 좌표 저장
+        Vector2 oPosition = transform.position; //게임 오브젝트 좌표 저장
+
+        Vector2 target = Camera.main.ScreenToWorldPoint(mPosition);
+
+        float dy = target.y - oPosition.y;
+        float dx = target.x - oPosition.x;
+
+        float degree = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
+        Debug.Log(degree);
+
+        anim.SetFloat("attackH", 0f);
+        anim.SetFloat("attackV", 0f);
+
+        if (degree < 45f && degree > -45f)
+        {
+            anim.SetFloat("attackH", 1f);
+            Debug.Log("right");
+            rend.flipX = true;
+        }
+        if (degree < -135f || degree > 135f)
+        {
+            anim.SetFloat("attackH", -1f);
+            Debug.Log("left");
+        }
+        anim.SetFloat("h", anim.GetFloat("attackH"));
+
+        if (degree < 135f && degree > 45f)
+        {
+            anim.SetFloat("attackV", 1f);
+            Debug.Log("up");
+        }
+        if (degree < -45f && degree > -135f)
+        {
+            anim.SetFloat("attackV", -1f);
+            Debug.Log("down");
+        }
+        anim.SetFloat("v", anim.GetFloat("attackV"));
+
+        anim.Play("Attack");
+
+        //anim.SetFloat("attackV", 0f);
+        //anim.SetFloat("attackH", 0f);
     }
 
     void FixedUpdate()
