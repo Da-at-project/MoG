@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &239879820
 RectTransform:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178, y: -407.4}
+  m_AnchoredPosition: {x: 178, y: -412.9}
   m_SizeDelta: {x: 220, y: 63.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &239879821
@@ -255,6 +255,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 1918755469}
   canvas: {fileID: 1904936151}
+  w: {x: 560, y: 180}
   sprite1: {fileID: 21300000, guid: 0dcb9a2dfc7a50d46a0f65b3a2710ced, type: 3}
   sprite2: {fileID: 21300000, guid: 64522fe82a22c044689120d24586a7dd, type: 3}
 --- !u!114 &239879822
@@ -429,6 +430,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 0}
   canvas: {fileID: 0}
+  w: {x: 0, y: 0}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
 --- !u!114 &308676059
@@ -582,6 +584,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 0}
   canvas: {fileID: 0}
+  w: {x: 0, y: 0}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
 --- !u!114 &402189150
@@ -1141,6 +1144,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 1918755469}
   canvas: {fileID: 1904936151}
+  w: {x: 560, y: 120}
   sprite1: {fileID: 21300000, guid: 59ea5ebd42c81874fadcc33ef9f17908, type: 3}
   sprite2: {fileID: 21300000, guid: b09e67997bd355944a2fb628377bdc30, type: 3}
 --- !u!114 &638652137
@@ -1527,6 +1531,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 0}
   canvas: {fileID: 0}
+  w: {x: 0, y: 0}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
 --- !u!114 &1015210496
@@ -1641,7 +1646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1016775995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1659,7 +1664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -334, y: -234.59998}
+  m_AnchoredPosition: {x: -334, y: -252.4}
   m_SizeDelta: {x: 220, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1016775996
@@ -1678,6 +1683,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 1918755469}
   canvas: {fileID: 1904936151}
+  w: {x: 560, y: 310}
   sprite1: {fileID: 21300000, guid: aa2e0a52c066d8141bb5b851d9c84f5f, type: 3}
   sprite2: {fileID: 21300000, guid: 0e292d8eed9f0b942a22d28d82a83e1b, type: 3}
 --- !u!114 &1016775997
@@ -1775,6 +1781,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 0}
   canvas: {fileID: 0}
+  w: {x: 0, y: 0}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
 --- !u!114 &1016800199
@@ -1928,6 +1935,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 0}
   canvas: {fileID: 0}
+  w: {x: 0, y: 0}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
 --- !u!114 &1112933447
@@ -2863,6 +2871,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 0}
   canvas: {fileID: 0}
+  w: {x: 0, y: 0}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
 --- !u!114 &1830305215
@@ -3230,6 +3239,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 0}
   canvas: {fileID: 0}
+  w: {x: 0, y: 0}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
 --- !u!114 &1922286606
@@ -3460,6 +3470,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 0}
   canvas: {fileID: 0}
+  w: {x: 0, y: 0}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
 --- !u!114 &1982612591
@@ -3921,7 +3932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2090865409
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3939,7 +3950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178, y: -467}
+  m_AnchoredPosition: {x: 178, y: -477.7}
   m_SizeDelta: {x: 220, y: 66.79999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2090865410
@@ -3958,6 +3969,7 @@ MonoBehaviour:
   buttonScale: {fileID: 0}
   Camera: {fileID: 1918755469}
   canvas: {fileID: 1904936151}
+  w: {x: 560, y: 245}
   sprite1: {fileID: 21300000, guid: 4f7c4e3994b84ed4c95ddfd620e292e3, type: 3}
   sprite2: {fileID: 21300000, guid: c28e464c66d08c94f9a9f6a47d910e73, type: 3}
 --- !u!114 &2090865411

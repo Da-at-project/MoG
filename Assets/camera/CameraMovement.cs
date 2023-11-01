@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
     {
         if(targetPos != null)
         {
-            targetPos.Set(target.transform.position.x, target.transform.position.y, this.transform.position.z);
+            targetPos.Set(target.transform.position.x, target.transform.position.y, -10f);
 
             this.transform.position = targetPos;
             // this.transform.position = Vector3.Lerp(this.transform.position, targetPos, moveSpeed * Time.deltaTime);

@@ -30,7 +30,7 @@ public class SceneController : MonoBehaviour
             Debug.Log("play");
             smallBalah.Wait(waitTime);
             pd.Play(ta);
-            SmallBalahData.instance.scene.notPlayed[taID] = true;
+            //SmallBalahData.instance.scene.notPlayed[taID] = true;
         }
     }
 

@@ -15,6 +15,7 @@ public class BtnType : MonoBehaviour
     Image image;
     RectTransform rt;
 
+    public Vector2 w;
     public Sprite sprite1;
     public Sprite sprite2;
     Vector2 mPos;
@@ -34,11 +35,15 @@ public class BtnType : MonoBehaviour
         mPos = Input.mousePosition;
         RectTransform rt2 = canvas.transform as RectTransform;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rt2, mPos, canvas.worldCamera, out lPos);
+        lPos.x += w.x;
+        lPos.y += w.y;
         Debug.Log(lPos);
+        Debug.Log(rt.sizeDelta);
+        Debug.Log(rt.rect);
 
         Debug.Log(rt.rect.x - rt.rect.width / 2);
-        if (lPos.x > rt.sizeDelta.x-rt.rect.width/2  && lPos.x < transform.position.x+rt.rect.width/2
-         && lPos.y > rt.sizeDelta.y-rt.rect.height/2 && lPos.y < transform.position.y+rt.rect.height/2)
+        if (lPos.x > rt.sizeDelta.x-rt.rect.width/2  && lPos.x < rt.sizeDelta.x+rt.rect.width/2
+         && lPos.y > rt.sizeDelta.y-rt.rect.height/2 && lPos.y < rt.sizeDelta.y+rt.rect.height/2)
         {
             isOn = true;  
         }
@@ -47,7 +52,7 @@ public class BtnType : MonoBehaviour
             isOn = false;
         }
 
-        if (isOn && Input.GetMouseButtonDown(0))
+        if (isOn)
         {
             image.sprite = sprite2;
             if (Input.GetMouseButtonDown(0))

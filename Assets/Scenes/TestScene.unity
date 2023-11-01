@@ -3287,7 +3287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b163475f83c93844fab46f937dbb0452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySlider: {fileID: 0}
+  mySlider: {fileID: 1377942911}
   maxHp: 0
   curHp: 0
 --- !u!1 &620699141
@@ -7614,11 +7614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657b3fa62d4b89749b5446dcdea2dec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 0}
   maxHP: 0
   nowHP: 0
   Damage: 0
-  pos: {fileID: 0}
   boxSize: {x: 0, y: 0}
   invinc: 0
   attack: 0
@@ -9092,7 +9090,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
