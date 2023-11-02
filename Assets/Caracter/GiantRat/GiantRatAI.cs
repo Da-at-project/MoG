@@ -24,8 +24,6 @@ public class GiantRatAI : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    
-
     void Update()
     {
         player = GameObject.Find("Balah").GetComponent<BalahMovement>().transform;
@@ -48,7 +46,7 @@ public class GiantRatAI : MonoBehaviour
                 if (dir.x < 0)
                     sr.flipX = true;
 
-                anim.SetBool("attack", true);
+                //anim.SetBool("attack", true);
                 StartCoroutine(Attack());
             }
             else
@@ -61,7 +59,7 @@ public class GiantRatAI : MonoBehaviour
         }
         else
         {
-            Debug.Log("Move");
+            //Debug.Log("Move");
             Vector3 dir = (pos - transform.position).normalized;
             Vector2 nextVec = dir * speed * Time.fixedDeltaTime;
             rb.MovePosition(rb.position + nextVec);
@@ -119,7 +117,7 @@ public class GiantRatAI : MonoBehaviour
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(0.4f);
-        anim.SetBool("attack", false);
+        //anim.SetBool("attack", false);
         isDelay = false;
     }
 }

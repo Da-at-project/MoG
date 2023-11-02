@@ -11,7 +11,6 @@ public class BalahMovement : MonoBehaviour
     Vector2 moveDirection; // 방향을 나타내는 변수
     Vector2 lastDirection; // 마지막으로 바라본 방향
 
-    public float maxHP;
     public float nowHP;
     public float Damage;
 
@@ -23,7 +22,7 @@ public class BalahMovement : MonoBehaviour
 
     public Vector2 inputVec;
     public float defaultSpeed;
-    float speed;
+    public float speed;
 
     public GameObject swordHitBox;
     Collider2D swordCollider;
@@ -60,7 +59,18 @@ public class BalahMovement : MonoBehaviour
             anim.SetFloat("h", inputVec.x);
             anim.SetFloat("v", inputVec.y);
         }
+        if (Input.GetButton("Run")) {
+            speed = defaultSpeed * 2f;
+        }
+        else
+        {
+            speed = defaultSpeed;
+        }
+        anim.SetBool("run", Input.GetButton("Run"));
 
+
+
+        /*
         if (Input.GetAxisRaw("Run") != 0f)
         {
             anim.SetBool("run", true);
@@ -71,6 +81,7 @@ public class BalahMovement : MonoBehaviour
             anim.SetBool("run", false);
             speed = defaultSpeed;
         }
+        */
 
         Attack();
         ScanObject();
@@ -112,7 +123,7 @@ public class BalahMovement : MonoBehaviour
         float dx = target.x - oPosition.x;
 
         float degree = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
-        Debug.Log(degree);
+        //Debug.Log(degree);
 
         anim.SetFloat("attackH", 0f);
         anim.SetFloat("attackV", 0f);
@@ -120,25 +131,27 @@ public class BalahMovement : MonoBehaviour
         if (degree < 45f && degree > -45f)
         {
             anim.SetFloat("attackH", 1f);
-            Debug.Log("right");
+            //Debug.Log("right");
+            gameObject.BroadcastMessage("IsFacingRight", true);
             rend.flipX = true;
         }
         if (degree < -135f || degree > 135f)
         {
             anim.SetFloat("attackH", -1f);
-            Debug.Log("left");
+            //Debug.Log("left");
+            gameObject.BroadcastMessage("IsFacingRight", false);
         }
         anim.SetFloat("h", anim.GetFloat("attackH"));
 
         if (degree < 135f && degree > 45f)
         {
             anim.SetFloat("attackV", 1f);
-            Debug.Log("up");
+            //Debug.Log("up");
         }
         if (degree < -45f && degree > -135f)
         {
             anim.SetFloat("attackV", -1f);
-            Debug.Log("down");
+            //Debug.Log("down");
         }
         anim.SetFloat("v", anim.GetFloat("attackV"));
 
