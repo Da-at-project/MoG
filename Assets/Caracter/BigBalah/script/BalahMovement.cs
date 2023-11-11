@@ -27,15 +27,35 @@ public class BalahMovement : MonoBehaviour
     public GameObject swordHitBox;
     Collider2D swordCollider;
 
+    private float waitTime;
+
     void Awake()
     {
         rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
-        swordCollider = swordHitBox.GetComponent<Collider2D>();
+        //swordCollider = swordHitBox.GetComponent<Collider2D>();
+
+        anim.SetBool("move", false);
+        anim.SetBool("run", false);
     }
 
     void Update()
+    {
+        if (waitTime > 0)
+        {
+            waitTime -= Time.deltaTime;
+            //Debug.Log(waitTime);
+            rb.velocity = new Vector2(0, 0);
+            return;
+        }
+
+        Move();
+        Attack();
+        ScanObject();
+    }
+
+    void Move()
     {
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
@@ -50,6 +70,7 @@ public class BalahMovement : MonoBehaviour
 
         if (Vector2.zero == nextVec)
         {
+            
             anim.SetBool("move", false);
         }
         else
@@ -59,46 +80,20 @@ public class BalahMovement : MonoBehaviour
             anim.SetFloat("h", inputVec.x);
             anim.SetFloat("v", inputVec.y);
         }
-        if (Input.GetButton("Run")) {
-            speed = defaultSpeed * 2f;
-        }
-        else
-        {
-            speed = defaultSpeed;
-        }
-        anim.SetBool("run", Input.GetButton("Run"));
-
-
-
-        /*
-        if (Input.GetAxisRaw("Run") != 0f)
-        {
-            anim.SetBool("run", true);
-            speed = defaultSpeed * 2f;
-        }
-        else
-        {
-            anim.SetBool("run", false);
-            speed = defaultSpeed;
-        }
-        */
-
-        Attack();
-        ScanObject();
-
+        if (Input.GetButton("Run")) speed = defaultSpeed * 2f;
+        else                        speed = defaultSpeed;
         if (moveDirection != Vector2.zero)
-        {
             lastDirection = moveDirection;
-        }
+        
+        anim.SetBool("run", Input.GetButton("Run"));
 
         moveDirection.x = Mathf.RoundToInt(inputVec.x);     // 정수로 고정(좌우)
         moveDirection.y = Mathf.RoundToInt(inputVec.y);     // 정수로 고정(상하)
-
         lastDirection.x = Mathf.RoundToInt(lastDirection.x); // 정수로 고정(좌우)
         lastDirection.y = Mathf.RoundToInt(lastDirection.y); // 정수로 고정(상하)
 
         rb.velocity = inputVec * speed;
-    }
+    } 
 
     void Attack()
     {
@@ -123,7 +118,6 @@ public class BalahMovement : MonoBehaviour
         float dx = target.x - oPosition.x;
 
         float degree = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
-        //Debug.Log(degree);
 
         anim.SetFloat("attackH", 0f);
         anim.SetFloat("attackV", 0f);
@@ -131,14 +125,12 @@ public class BalahMovement : MonoBehaviour
         if (degree < 45f && degree > -45f)
         {
             anim.SetFloat("attackH", 1f);
-            //Debug.Log("right");
             gameObject.BroadcastMessage("IsFacingRight", true);
             rend.flipX = true;
         }
         if (degree < -135f || degree > 135f)
         {
             anim.SetFloat("attackH", -1f);
-            //Debug.Log("left");
             gameObject.BroadcastMessage("IsFacingRight", false);
         }
         anim.SetFloat("h", anim.GetFloat("attackH"));
@@ -146,19 +138,14 @@ public class BalahMovement : MonoBehaviour
         if (degree < 135f && degree > 45f)
         {
             anim.SetFloat("attackV", 1f);
-            //Debug.Log("up");
         }
         if (degree < -45f && degree > -135f)
         {
             anim.SetFloat("attackV", -1f);
-            //Debug.Log("down");
         }
         anim.SetFloat("v", anim.GetFloat("attackV"));
 
         anim.Play("Attack");
-
-        //anim.SetFloat("attackV", 0f);
-        //anim.SetFloat("attackH", 0f);
     }
 
     void ScanObject()
@@ -167,6 +154,12 @@ public class BalahMovement : MonoBehaviour
         RaycastHit2D rayHit = Physics2D.Raycast(rb.position, moveDirection, 2f, LayerMask.GetMask("NPC"));
 
         //if()
+    }
+
+    public void Wait(float waitTime)
+    {
+        this.waitTime = waitTime;
+        Debug.Log("Wait for " + waitTime);
     }
 
     void FixedUpdate()
@@ -208,12 +201,4 @@ public class BalahMovement : MonoBehaviour
     {
         Debug.Log("die");
     }
-
-    /*
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(pos.position, boxSize);
-    }
-    */
 }

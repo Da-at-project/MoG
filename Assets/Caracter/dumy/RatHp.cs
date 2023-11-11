@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class RatHp : MonoBehaviour, IDamagable
 {
     public Slider mySlider;
+    public Vector3 barPos;
     public float maxHp;
     Rigidbody2D rb;
+
+    public float force = 30f;
 
     public float Health
     {
@@ -30,6 +33,7 @@ public class RatHp : MonoBehaviour, IDamagable
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        curHp = maxHp;
     }
 
     private void LateUpdate()
@@ -39,29 +43,23 @@ public class RatHp : MonoBehaviour, IDamagable
     private void FixedUpdate()
     {
         mySlider.transform.position 
-            = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, -1.5f, 0));
+            = Camera.main.WorldToScreenPoint(transform.position + barPos);
     }
     
     void IDamagable.OnHit(float damage)
     {
         curHp -= damage;
-        Debug.Log("damage : " + damage);
-        Debug.Log("hp : " + curHp);
+        Debug.Log("damage : " + damage + ", hp : " + curHp);
         if (curHp < 0)
-        {
             Destroy(gameObject);
-        }
     }
 
     void IDamagable.OnHit(float damage, Vector2 knockback)
     {
         curHp -= damage;
-        rb.AddForce(knockback);
-        Debug.Log("knockback" + knockback);
-        Debug.Log("hp : " + curHp);
+        rb.AddForce(knockback*force);
+        Debug.Log("knockback" + knockback + ", hp : " + curHp);
         if(curHp < 0)
-        {
             Destroy(gameObject);
-        }
     }
 }

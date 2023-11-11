@@ -123,66 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &31330751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 31330752}
-  - component: {fileID: 31330754}
-  - component: {fileID: 31330753}
-  m_Layer: 0
-  m_Name: StartPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &31330752
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31330751}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7222222, y: -2.9333336, z: -0.8017769}
-  m_LocalScale: {x: 1.1111112, y: 1.1111112, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119315615}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &31330753
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31330751}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.95, y: 0.88, z: 1}
-  m_Center: {x: 0, y: -1.53, z: 0}
---- !u!114 &31330754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31330751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b11f65e111b5fbc46bc74b64c5efa58c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPoint: NoxRoom
-  beforeMap: NoxHouse
 --- !u!1 &105235666
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +697,40 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -362139988044224055, guid: 907b2e0f6f64dd049a86819b725ffcfc, type: 2}
     value: {fileID: 0}
+  - key: {fileID: -4916112462687671346, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6871567804672348567, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7946673937986141433, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4882724017691631391, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4799009763226395208, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8022683171557528154, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7743585992301185049, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6236294734553791361, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6874885513858242016, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7997453587290321915, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2832540018615409070, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3609496247219153470, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7439308900475549202, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4368885018756164282, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -232977544410476718, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2781226527166342667, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -9067578078694329365, guid: d558aba2428da72489420e0da6c2f744, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1470216721
@@ -1152,7 +1126,6 @@ Transform:
   m_Children:
   - {fileID: 531228442}
   - {fileID: 1897258568}
-  - {fileID: 31330752}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

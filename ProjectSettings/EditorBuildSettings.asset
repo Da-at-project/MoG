@@ -20,4 +20,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1/Village(past).unity
     guid: fae5c577087234646945431078169a33
+  - enabled: 1
+    path: Assets/Scenes/Scene19.unity
+    guid: ce1323ab3c1295143a8723f02777e2b9
+  - enabled: 1
+    path: Assets/Scenes/Scene18.unity
+    guid: ee20d35282f3c1d4b8855772faf2d4f2
+  - enabled: 1
+    path: Assets/Scenes/Scene17.unity
+    guid: e1fa5169e2e180b45a69d4ca8129a153
+  - enabled: 1
+    path: Assets/Scenes/13~16/13~16.unity
+    guid: 0c8516a92f505274ca7257d70d17f70a
+  - enabled: 1
+    path: Assets/Scenes/13~16/16-1.unity
+    guid: 08e49d339b6b71045aafab11e67f2685
+  - enabled: 1
+    path: Assets/Scenes/Menu/MainMenu2.unity
+    guid: 1253776d31e8f7a418939841443a7509
   m_configObjects: {}

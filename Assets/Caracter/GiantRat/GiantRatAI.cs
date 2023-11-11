@@ -9,7 +9,7 @@ public class GiantRatAI : MonoBehaviour
     public float ACCESS_DISTANCE;
     Vector3 pos;
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sr;
     Transform player;
@@ -47,6 +47,7 @@ public class GiantRatAI : MonoBehaviour
                     sr.flipX = true;
 
                 //anim.SetBool("attack", true);
+                anim.Play("Rat_stand");
                 StartCoroutine(Attack());
             }
             else
