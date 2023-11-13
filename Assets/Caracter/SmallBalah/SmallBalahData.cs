@@ -4,26 +4,6 @@ using UnityEngine;
 
 public class SmallBalahData : MonoBehaviour
 {
-    public static SmallBalahData instance = null;
-    public static SmallBalahData Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<SmallBalahData>();
-                if (instance == null)
-                {
-                    GameObject go = new GameObject();
-                    go.name = "SmallBalahData";
-                    instance = go.AddComponent<SmallBalahData>();
-                    DontDestroyOnLoad(go);
-                }
-            }
-            return instance;
-        }
-    }
-
     [Header("# balah Info")]
     public float maxHP = 100;
     public float nowHP;
@@ -34,18 +14,6 @@ public class SmallBalahData : MonoBehaviour
     [Header("# sp regen control")]
     private float _pointTime = 0.1f;
     private float _nextTime = 0.0f;
-
-    void Awake()
-    {
-        Debug.Log("Awake");
-        if (instance != null) 
-        {
-            Destroy(gameObject); 
-            return;
-        }
-        instance = this; 
-        DontDestroyOnLoad(gameObject);
-    }
 
     private void Start()
     {

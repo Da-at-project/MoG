@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SmallBalahMovement : MonoBehaviour
 {
-    static public SmallBalahMovement instance;
-
     public Vector2 inputVec;
     public float defaultSpeed;
     //float speed;
@@ -21,17 +19,8 @@ public class SmallBalahMovement : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            DontDestroyOnLoad(this.gameObject);
-            rb = GetComponent<Rigidbody2D>();
-            anim = GetComponentInChildren<Animator>();
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()

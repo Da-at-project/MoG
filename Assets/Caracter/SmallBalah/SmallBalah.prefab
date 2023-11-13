@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3348721270353240573}
   - component: {fileID: 3348721270353240575}
   - component: {fileID: 3348721270353240574}
+  - component: {fileID: 460521642}
   m_Layer: 0
   m_Name: SmallBalah
   m_TagString: Untagged
@@ -160,5 +161,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputVec: {x: 0, y: 0}
   defaultSpeed: 5
+  rb: {fileID: 0}
+  anim: {fileID: 0}
   currentMap: BalahRoom
   beforeMap: 
+  ui: {fileID: 0}
+--- !u!114 &460521642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348721270353240563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94a41642100663846a2e860bcd147a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  nowHP: 0
+  maxSP: 100
+  nowSP: 0
