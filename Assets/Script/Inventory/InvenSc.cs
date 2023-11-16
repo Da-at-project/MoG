@@ -6,15 +6,11 @@ using UnityEngine.UI;
 
 public class InvenSc : MonoBehaviour
 {
-
     public GameObject setActive;
     private bool isFalse = false;
-    private void Update()
-    {
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            setActive.SetActive(isFalse = !isFalse);
-        }
+    public void changeActive()
+    {
+        setActive.SetActive(isFalse = !isFalse);
     }
 }

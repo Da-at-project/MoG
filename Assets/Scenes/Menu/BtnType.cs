@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class BtnType : MonoBehaviour
+public class BtnType : MonoBehaviour, IPointerClickHandler
 {
     public BTNType currentType;
     public Transform buttonScale;
@@ -21,15 +21,19 @@ public class BtnType : MonoBehaviour
     Vector2 mPos;
     bool isOn = false;
 
+    AudioSource audioSource;
+
     void Awake()
     {
         image = GetComponent<Image>();
         rt = GetComponent<RectTransform>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (image == null || sprite1 == null || sprite2 == null) return;
+        if (image == null || sprite1 == null || sprite2 == null) 
+            return;
 
         Vector2 lPos;
         mPos = Input.mousePosition;
@@ -57,13 +61,20 @@ public class BtnType : MonoBehaviour
             image.sprite = sprite2;
             if (Input.GetMouseButtonDown(0))
             {
-                Click();
+                audioSource.Play();
+                //Click();
+                Invoke("Click", 0.2f);
             }
         }
         else
         {
             image.sprite = sprite1;
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+
     }
 
     void Click()

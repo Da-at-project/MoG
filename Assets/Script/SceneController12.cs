@@ -12,11 +12,13 @@ public class SceneController12 : MonoBehaviour
     private PlayableDirector pd;
     public TimelineAsset ta;
 
-    GameObject inv;
-    GameObject inv2;
+    public GameObject inv;
+    public GameObject inv2;
     public float waitTime = 0f;
     private bool isEat;
     private bool isOpen;
+
+    bool isPlay = false;
 
     void Start()
     {
@@ -27,10 +29,12 @@ public class SceneController12 : MonoBehaviour
 
     void Update()
     {
-        inv2 = GameObject.Find("Inventory");
-        inv = GameObject.Find("Inven");
-        if (inv2 == null) return;
-
+        if (isPlay) return;
+        Debug.Log("Open : " + isOpen + ", Eat : " + isEat);
+        if (inv.activeSelf == false)
+            isOpen = true;
+        else 
+            isOpen = false;
 
         if (inv2.GetComponent<Inventory>().items[0] == null)
             isEat = true;
@@ -39,10 +43,10 @@ public class SceneController12 : MonoBehaviour
             isEat = false;
         }
         
-        Debug.Log("Open : " +  isOpen + ", Eat : " + isEat);
 
-        if(isEat)
+        if(isEat && isOpen)
         {
+            isPlay = true;
             balah.Wait(waitTime);
             pd.Play(ta);
         }

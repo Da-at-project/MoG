@@ -14,6 +14,10 @@ public class MenuController2 : MonoBehaviour
 
     private float timer = 21f;
 
+    private void Awake()
+    {
+    }
+
     void FixedUpdate()
     {
         if (timer > 0)
@@ -27,6 +31,5 @@ public class MenuController2 : MonoBehaviour
             image.SetActive(true);
             player.SetActive(false);
         }
-
     }
 }

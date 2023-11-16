@@ -19,6 +19,7 @@ public class BalahMovement : MonoBehaviour
 
     public bool invinc = false;
     public bool attack = false;
+    public bool canAttack = true;
 
     public Vector2 inputVec;
     public float defaultSpeed;
@@ -28,12 +29,18 @@ public class BalahMovement : MonoBehaviour
     Collider2D swordCollider;
 
     private float waitTime;
+    InvenSc invenSc;
+
+    GameObject obj;
+    public GameObject Scene;
+    SceneController2 s;
 
     void Awake()
     {
         rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
+        invenSc = GetComponent<InvenSc>()
         //swordCollider = swordHitBox.GetComponent<Collider2D>();
 
         anim.SetBool("move", false);
@@ -70,7 +77,6 @@ public class BalahMovement : MonoBehaviour
 
         if (Vector2.zero == nextVec)
         {
-            
             anim.SetBool("move", false);
         }
         else
@@ -97,6 +103,7 @@ public class BalahMovement : MonoBehaviour
 
     void Attack()
     {
+        if (!canAttack) return;
         if (!Input.GetMouseButtonDown(0) || anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             return;
 
@@ -126,7 +133,7 @@ public class BalahMovement : MonoBehaviour
         {
             anim.SetFloat("attackH", 1f);
             gameObject.BroadcastMessage("IsFacingRight", true);
-            rend.flipX = true;
+            rend.flipX = true;  
         }
         if (degree < -135f || degree > 135f)
         {
@@ -153,7 +160,24 @@ public class BalahMovement : MonoBehaviour
         Debug.DrawRay(rb.position, moveDirection * 2f, new Color(1, 0, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(rb.position, moveDirection, 2f, LayerMask.GetMask("NPC"));
 
-        //if()
+        if(rayHit.collider != null)
+        {
+            obj = rayHit.collider.gameObject;
+            Debug.Log("Hit");
+        }
+        else 
+            obj = null;
+
+        if(obj != null && Input.GetKeyDown(KeyCode.F))
+        {
+            s = Scene.GetComponent<SceneController2>();
+            s.startScene();
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            invenSc.changeActive();
+        }
     }
 
     public void Wait(float waitTime)

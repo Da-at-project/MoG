@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d9f9cca9b2873b54bac4a49592f0a380
+guid: 1ae0f6246892c5d4d92d3275286fe2d5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,100 +101,70 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nox_walk_0
+      name: Nox_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
+        x: 6
+        y: 0
+        width: 21
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f7d15c23e221a4d8a40bdd2fa3cd98
+      internalID: 67384041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nox_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 0
+        width: 21
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8722df08d3e1344fab8127e2f6d8a10
+      internalID: -942962810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nox_2
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
         width: 17
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38ef76187506f5649a15e8a03b995d5b
-      internalID: -788718474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nox_walk_1
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 1
-        width: 27
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ccac1d2a917b194587bd38d4244f619
-      internalID: -321027658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nox_walk_2
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 1
-        width: 30
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60df20a4628c354419f7923a45cf1607
-      internalID: 1966842065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nox_walk_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 1
-        width: 18
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8e903e27d2f1ed4bb1b7f99862c0daf
-      internalID: 595001553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nox_walk_4
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 1
-        width: 28
         height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -203,82 +173,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fe8d764c7f586a4fbaa94fd821a8712
-      internalID: 2143415717
+      spriteID: 294311118517e6b4fb5cdf1d0315f5a1
+      internalID: -1047356927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nox_walk_5
+      name: Nox_3
       rect:
         serializedVersion: 2
-        x: 153
-        y: 1
-        width: 32
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69ce3405205c3cd4790b1aa1b5e6bd13
-      internalID: 1623128804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nox_walk_6
-      rect:
-        serializedVersion: 2
-        x: 186
-        y: 1
-        width: 31
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f66c10e9b7dc0c448af4263bb664634d
-      internalID: -1558664965
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nox_walk_7
-      rect:
-        serializedVersion: 2
-        x: 221
-        y: 1
-        width: 23
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46e7c6aea199e884fac1155511624e80
-      internalID: -967809580
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nox_walk_8
-      rect:
-        serializedVersion: 2
-        x: 251
-        y: 1
-        width: 24
+        x: 106
+        y: 0
+        width: 17
         height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -287,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87ec04182058c564dbe1c8db9b693e8a
-      internalID: 196975386
+      spriteID: 7161f9e22afb93e4b8acb638eeb039cc
+      internalID: 106701704
       vertices: []
       indices: 
       edges: []
@@ -304,15 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nox_walk_0: -788718474
-      Nox_walk_1: -321027658
-      Nox_walk_2: 1966842065
-      Nox_walk_3: 595001553
-      Nox_walk_4: 2143415717
-      Nox_walk_5: 1623128804
-      Nox_walk_6: -1558664965
-      Nox_walk_7: -967809580
-      Nox_walk_8: 196975386
+      Nox_0: 67384041
+      Nox_1: -942962810
+      Nox_2: -1047356927
+      Nox_3: 106701704
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

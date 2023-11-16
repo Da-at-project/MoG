@@ -256,7 +256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: -180}
+  m_AnchoredPosition: {x: 130, y: -340}
   m_SizeDelta: {x: 505.6, y: 689.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &129542351
@@ -281,11 +281,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1b3df04d657ba6b46b7b4ad29d966c36, type: 3}
-    m_FontSize: 35
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1164,7 +1164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &806585098
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1183,8 +1183,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 354.8, y: 209}
-  m_SizeDelta: {x: 291.2, y: 124.7}
+  m_AnchoredPosition: {x: 600, y: 400}
+  m_SizeDelta: {x: 440, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806585099
 MonoBehaviour:
@@ -1435,8 +1435,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: -180}
-  m_SizeDelta: {x: 505.6, y: 689.5}
+  m_AnchoredPosition: {x: 130, y: -340}
+  m_SizeDelta: {x: 545.3, y: 689.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &941070588
 MonoBehaviour:
@@ -1460,11 +1460,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1b3df04d657ba6b46b7b4ad29d966c36, type: 3}
-    m_FontSize: 35
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1767,8 +1767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: -40, y: 150}
+  m_AnchoredPosition: {x: 0, y: 182}
+  m_SizeDelta: {x: -100, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1150344254
 MonoBehaviour:
@@ -2776,7 +2776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3641d620df4254a830eee873313978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: NoxRoom
+  NextSceneName: Scene9
 --- !u!4 &1551983013
 Transform:
   m_ObjectHideFlags: 0
@@ -2925,18 +2925,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557034083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 360}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 806585098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.8, y: 3.39}
-  m_SizeDelta: {x: 261.19, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 50, y: 0}
+  m_SizeDelta: {x: 360, y: 82}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1557034085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2957,7 +2957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Q. \uBE44\uBA85\uC18C\uB9AC\uB97C \uB530\uB77C \uAC00\uC790"
+  m_text: "Q. \uBC1C\uC790\uAD6D\uC744 \uB530\uB77C \uC5C4\uB9C8\uB97C \uCC3E\uC544\uBCF4\uC790"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fa70a13e0852a94c9cd2c039254de12, type: 2}
   m_sharedMaterial: {fileID: -8115412616550533670, guid: 1fa70a13e0852a94c9cd2c039254de12, type: 2}
@@ -2984,8 +2984,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

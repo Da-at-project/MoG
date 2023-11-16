@@ -4,21 +4,20 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-public class SceneController : MonoBehaviour
+public class SceneController2 : MonoBehaviour
 {
-    public static SceneController instance;
-    private SmallBalahMovement smallBalah;
+    public static SceneController2 instance;
+    private BalahMovement balah;
 
     private PlayableDirector pd;
     public TimelineAsset ta;
 
     public float waitTime = 0f;
-    public int taID = 0;
 
     private void Start()
     {
         instance = this;
-        smallBalah = FindObjectOfType<SmallBalahMovement>();
+        balah = FindObjectOfType<BalahMovement>();
         pd = GetComponent<PlayableDirector>();
     }
 
@@ -32,9 +31,8 @@ public class SceneController : MonoBehaviour
     public void startScene()
     {
         Debug.Log("play");
-        smallBalah.Wait(waitTime);
+        balah.Wait(waitTime);
         pd.Play(ta);
         //SmallBalahData.instance.scene.notPlayed[taID] = true;
     }
-
 }
