@@ -40,7 +40,7 @@ public class BalahMovement : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
-        invenSc = GetComponent<InvenSc>()
+        invenSc = GetComponent<InvenSc>();
         //swordCollider = swordHitBox.GetComponent<Collider2D>();
 
         anim.SetBool("move", false);
@@ -158,7 +158,7 @@ public class BalahMovement : MonoBehaviour
     void ScanObject()
     {
         Debug.DrawRay(rb.position, moveDirection * 2f, new Color(1, 0, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rb.position, moveDirection, 2f, LayerMask.GetMask("NPC"));
+        RaycastHit2D rayHit = Physics2D.Raycast(rb.position, moveDirection, 3f, LayerMask.GetMask("NPC"));
 
         if(rayHit.collider != null)
         {

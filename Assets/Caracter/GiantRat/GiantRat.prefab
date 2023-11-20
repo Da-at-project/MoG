@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7075472, g: 0.242969, b: 0.242969, a: 1}
+  m_Color: {r: 0.735849, g: 0.1346742, b: 0.1346742, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4033231735877931675}
   m_Layer: 0
   m_Name: GiantRat
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,8 +179,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.16, y: 0.96187496}
+  m_Offset: {x: 0.0000038146973, y: -0.10463238}
+  m_Size: {x: 1.828865, y: 2.372076}
   m_Direction: 0
 --- !u!50 &4033231735877931680
 Rigidbody2D:
@@ -195,7 +195,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9781898df5de90849bbd0ed0fc2de5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  RECOG_DISTANCE: 5
+  speed: 10
+  RECOG_DISTANCE: 20
   ACCESS_DISTANCE: 0
   rb: {fileID: 0}
 --- !u!114 &4033231735877931675
@@ -256,7 +256,7 @@ MonoBehaviour:
   barPos: {x: 0, y: 0, z: 0}
   maxHp: 100
   force: 30
-  curHp: 70
+  curHp: 100
 --- !u!1 &4033231736048997231
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.11014062, b: 0.0872552, a: 1}
+  m_Color: {r: 0.3773585, g: 0.08595152, b: 0.07618369, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
