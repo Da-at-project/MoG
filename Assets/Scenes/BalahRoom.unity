@@ -911,7 +911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Q. \uBE44\uBA85\uC18C\uB9AC\uB97C \uB530\uB77C \uAC70\uC2E4\uB85C \uC774\uB3D9\uD558\uC790"
+  m_text: "Q. \uBE44\uBA85 \uC18C\uB9AC\uB97C \uB530\uB77C \uAC70\uC2E4\uB85C \uC774\uB3D9\uD558\uC790."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fa70a13e0852a94c9cd2c039254de12, type: 2}
   m_sharedMaterial: {fileID: -8115412616550533670, guid: 1fa70a13e0852a94c9cd2c039254de12, type: 2}

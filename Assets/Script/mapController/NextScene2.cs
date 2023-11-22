@@ -9,9 +9,13 @@ public class NextScene2 : MonoBehaviour
 
     public float setTime;
     public float time;
+
+    public GameObject target;
+    RatAI rat;
     
     void Start()
     {
+        rat = target.GetComponent<RatAI>();
     }
 
     private void Update()
@@ -19,8 +23,7 @@ public class NextScene2 : MonoBehaviour
         time += Time.deltaTime;
         if(time >= setTime)
         {
-            GameObject rat = GameObject.Find("GiantRat");
-            if(rat == null)
+            if(rat.curHP <= 0)
                 SceneManager.LoadScene(NextSceneName);
         }
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Scene
   - enemy
+  - Rat
   layers:
   - Default
   - TransparentFX

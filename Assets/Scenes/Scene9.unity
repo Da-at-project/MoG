@@ -232,7 +232,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB610 \uADF8\uB54C\uC758 \n\uC545\uBABD\uC774\uB124.."
+  m_Text: "\uB610 \uADF8 \uB0A0\uC758 \n\uC545\uBABD\uC774\uB124..."
 --- !u!222 &22400238
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -952,7 +952,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC5EC\uAE30  \uC544\uCE68\uC774\uC57C\n"
+  m_Text: "\uC5EC\uAE30, \uB124 \uC544\uCE68\uC774\uC57C."
 --- !u!222 &177293074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1333,7 +1333,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\uC544\uBE60\uAC00 \uD6C8\uB828\uC7A5\uC5D0\uC11C \uAE30\uB2E4\uB9AC\uACE0
-    \uACC4\uC2DC\uB2C8\uAE4C \uC5BC\uB978 \uB098\uC640"
+    \uACC4\uC2DC\uB2C8\uAE4C \uC5BC\uB978 \uB098\uC640."
 --- !u!222 &400307313
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1413,7 +1413,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC751..\n"
+  m_Text: "\uC751...\n"
 --- !u!222 &405504537
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2825,7 +2825,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBA3C\uC800 \uAC08\uAC8C\n"
+  m_Text: "\uBA3C\uC800 \uAC08\uAC8C.\n"
 --- !u!222 &1045053295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3156,7 +3156,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD5C9..\uD5C9..\n"
+  m_Text: "\uD5C9... \uD5C9...\n"
 --- !u!222 &1168823784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5449,7 +5449,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB610 \uADF8\uB54C\uC758 \uC545\uBABD\uC774\uC57C...?"
+  m_Text: "\uB610 \uADF8 \uC545\uBABD\uC774\uC57C...?"
 --- !u!222 &2012577571
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5688,7 +5688,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB9DB\uC788\uB124\n"
+  m_Text: "...\uB9DB\uC788\uB124.\n"
 --- !u!222 &2089669802
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -12,9 +12,9 @@ public class SwordHitBox : MonoBehaviour
 
     Collider2D swordCollider;
     public Vector3 faceRight = new Vector3(1.5f, 0f, 0f);
-    public Vector3 faceLeft = new Vector3(-1.5f, 0f, 0f);
+    public Vector3 faceLeft = new Vector3(-5f, 0f, 0f);
     public Vector3 faceUp = new Vector3(0f, 0f, 0f);
-    public Vector3 faceFoen = new Vector3(-1.5f, 0f, 0f);
+    public Vector3 faceDown = new Vector3(-1.5f, 0f, 0f);
 
     public float shakeTime = 0.1f;
     public float shakeIntensity = 5f;
@@ -30,50 +30,12 @@ public class SwordHitBox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        /*
-        if (other.gameObject.CompareTag("enemy"))
-        {
-            GiantRatAI enemy = other.gameObject.GetComponent<GiantRatAI>();
-            if (enemy == null) return;
-
-            Rigidbody2D balah = GetComponentInParent<Rigidbody2D>();
-            if (enemy == null) return;
-
-        
-            
-            //StartCoroutine(Shake());
-
-            enemy.rb.isKinematic = false;
-            Vector2 difference = enemy.transform.position - balah.transform.position;
-            difference = difference.normalized * thrust;
-            Debug.Log(difference);
-            enemy.rb.isKinematic = true;
-            StartCoroutine(KnockCo(enemy.rb));
-
-            //Debug.Log("enemy : " + enemy.transform.position);
-            //Debug.Log("balah : " + balah.transform.position);
-        }
-        Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
-        if(enemy == null) return;
-
-        Rigidbody2D balah = other.GetComponentInParent<Rigidbody2D>();
-        if (enemy == null) return;
-
-        enemy.isKinematic = false;
-        Vector2 difference = enemy.transform.position - balah.transform.position;
-        Debug.Log("enemy : " + enemy.transform.position);
-        Debug.Log("balah : " + balah.transform.position);
-        difference = difference.normalized * thrust;
-        Debug.Log(difference);
-        enemy.isKinematic = true;
-        StartCoroutine(KnockCo(enemy));
-        */
 
         IDamagable damagable = other.GetComponent<IDamagable>();
         if (damagable == null) return;
 
         Vector3 parentPos = gameObject.GetComponentInParent<Transform>().position;
-        Vector2 dir = (Vector2)(parentPos - other.gameObject.transform.position).normalized;
+        Vector2 dir = (Vector2)(other.gameObject.transform.position - parentPos).normalized;
         Vector2 knockback = dir * knockbackForce;
         Debug.Log("hit : " + other);
         
@@ -81,16 +43,31 @@ public class SwordHitBox : MonoBehaviour
 
     }
 
-    void IsFacingRight(bool isFacingRight)
+    void IsFacing(float dir)
     {
-        //Debug.Log(isFacingRight);
-        if(isFacingRight)
+        if (dir == 1)
         {
             gameObject.transform.localPosition = faceRight;
+            swordCollider.offset = faceRight;
+            swordCollider.transform.localEulerAngles = new Vector3(0, 0, 0);
         } 
-        else
+        if (dir == 2)
         {
             gameObject.transform.localPosition = faceLeft;
+            swordCollider.offset = faceLeft;
+            swordCollider.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+        if (dir == 3)
+        {
+            gameObject.transform.localPosition = faceUp;
+            swordCollider.offset = faceUp;
+            swordCollider.transform.localEulerAngles = new Vector3(0, 0, 90);
+        }
+        if (dir == 4)
+        {
+            gameObject.transform.localPosition = faceDown;
+            swordCollider.offset = faceDown;
+            swordCollider.transform.localEulerAngles = new Vector3(0, 0, 90);
         }
         //Debug.Log(gameObject.transform.position);
     }
@@ -105,28 +82,6 @@ public class SwordHitBox : MonoBehaviour
             enemy.isKinematic = true;
         }
     }
-        /*
-
-    private IEnumerator Shake()
-    {
-        Debug.Log("shake");
-        Vector3 origin = cam.localPosition;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < shakeTime)
-        {
-            Vector3 random = origin + Random.insideUnitSphere * shakeAmount;
-            cam.localPosition = Vector3.Lerp(cam.localPosition, random, Time.deltaTime * shakeSpeed);
-
-            yield return null;
-
-            elapsedTime += Time.deltaTime;
-        }
-
-        cam.localPosition = origin;
-    }
-
-        */
     public void OnShakeCamera(float shakeTime = 1f, float shakeIntensity=0.1f)
     {
         this.shakeTime = shakeTime;

@@ -214,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -445203859
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -1765351082, guid: fc93b6bcbb0166b47b3d3bc4c0329b46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -239,7 +239,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 50
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -281,9 +281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
-  nowHP: 0
+  nowHP: 100
   maxSP: 100
-  nowSP: 0
+  nowSP: 100
 --- !u!114 &2070440585284049698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,15 +296,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657b3fa62d4b89749b5446dcdea2dec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nowHP: 0
+  nowHP: 100
   Damage: 0
   boxSize: {x: 0, y: 0}
   invinc: 0
   attack: 0
+  canAttack: 1
   inputVec: {x: 0, y: 0}
   defaultSpeed: 5
-  speed: 0
+  speed: 10
   swordHitBox: {fileID: 5155474700133464006}
+  Scene: {fileID: 0}
 --- !u!70 &2070440585284049710
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -318,8 +320,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.63}
-  m_Size: {x: 0.51, y: 0.35}
+  m_Offset: {x: 0.0152869085, y: -1.129162}
+  m_Size: {x: 1.4314959, y: 0.76326764}
   m_Direction: 1
 --- !u!61 &2070440585284049708
 BoxCollider2D:
@@ -334,7 +336,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.035362244, y: 0.10401726}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -345,7 +347,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5}
+  m_Size: {x: 1.0707245, y: 1.6314583}
   m_EdgeRadius: 0
 --- !u!1 &2070440585308291783
 GameObject:
@@ -937,7 +939,7 @@ Transform:
   m_GameObject: {fileID: 5155474700133464006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2070440585284049711}
@@ -950,15 +952,15 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5155474700133464006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.29, y: 1.81}
-  m_Direction: 0
+  m_Offset: {x: 1, y: 0}
+  m_Size: {x: 2.8471167, y: 1.3400538}
+  m_Direction: 1
 --- !u!114 &5155474700133464001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,12 +975,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordDamage: 30
   knockbackForce: 500
-  thrust: 0
-  knockTime: 0
-  faceRight: {x: 1, y: -0.9, z: 0}
-  faceLeft: {x: -1, y: -0.9, z: 0}
-  faceUp: {x: 0, y: 0, z: 0}
-  faceFoen: {x: -1.5, y: 0, z: 0}
+  thrust: 5
+  knockTime: 0.3
+  faceRight: {x: 1.5, y: 0, z: 0}
+  faceLeft: {x: -1.5, y: 0, z: 0}
+  faceUp: {x: 1.5, y: 1.5, z: 0}
+  faceDown: {x: -1.5, y: -1.5, z: 0}
   shakeTime: 0.1
   shakeIntensity: 5
 --- !u!1 &6570824779315808911

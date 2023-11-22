@@ -14,6 +14,8 @@ public class SceneController2 : MonoBehaviour
 
     public float waitTime = 0f;
 
+    bool isPlayed = false;
+
     private void Start()
     {
         instance = this;
@@ -24,8 +26,11 @@ public class SceneController2 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.name);
-        if (collision.name == "SmallBalah")
+        if (collision.name == "Balah" && !isPlayed)
+        {
             startScene();
+            isPlayed = true;
+        }
     }
 
     public void startScene()

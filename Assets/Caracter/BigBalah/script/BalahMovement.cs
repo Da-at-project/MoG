@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BalahMovement : MonoBehaviour
+public class BalahMovement : MonoBehaviour , IDamagable
 {
     SpriteRenderer rend;
     Rigidbody2D rb;
@@ -34,6 +34,8 @@ public class BalahMovement : MonoBehaviour
     GameObject obj;
     public GameObject Scene;
     SceneController2 s;
+
+    public float Health { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     void Awake()
     {
@@ -86,7 +88,7 @@ public class BalahMovement : MonoBehaviour
             anim.SetFloat("h", inputVec.x);
             anim.SetFloat("v", inputVec.y);
         }
-        if (Input.GetButton("Run")) speed = defaultSpeed * 2f;
+        if (Input.GetButton("Run")) speed = defaultSpeed * 1.5f;
         else                        speed = defaultSpeed;
         if (moveDirection != Vector2.zero)
             lastDirection = moveDirection;
@@ -132,23 +134,25 @@ public class BalahMovement : MonoBehaviour
         if (degree < 45f && degree > -45f)
         {
             anim.SetFloat("attackH", 1f);
-            gameObject.BroadcastMessage("IsFacingRight", true);
+            gameObject.BroadcastMessage("IsFacing", 1);
             rend.flipX = true;  
         }
         if (degree < -135f || degree > 135f)
         {
             anim.SetFloat("attackH", -1f);
-            gameObject.BroadcastMessage("IsFacingRight", false);
+            gameObject.BroadcastMessage("IsFacing", 2);
         }
         anim.SetFloat("h", anim.GetFloat("attackH"));
 
         if (degree < 135f && degree > 45f)
         {
             anim.SetFloat("attackV", 1f);
+            gameObject.BroadcastMessage("IsFacing", 3);
         }
         if (degree < -45f && degree > -135f)
         {
             anim.SetFloat("attackV", -1f);
+            gameObject.BroadcastMessage("IsFacing", 4);
         }
         anim.SetFloat("v", anim.GetFloat("attackV"));
 
@@ -194,24 +198,15 @@ public class BalahMovement : MonoBehaviour
         }
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    void OnDamaged(float damage)
     {
-        GameObject enemy = collision.gameObject;
-        if (collision.gameObject.tag == "Enemy" && invinc == false)
-        {
-            OnDamaged(enemy);
-        }
-    }
-
-    void OnDamaged(GameObject enemy)
-    {
-        nowHP -= enemy.GetComponent<Enemy>().damage;
+        nowHP -= damage;
         if (nowHP <= 0)
             Dead();
         gameObject.layer = 11;
         rend.color = new Color(1, 1, 1, 0.6f);
         invinc = true;
-        Invoke("OffDamaged", 0.6f);
+        Invoke("OffDamaged", 1.2f);
     }
 
     void OffDamaged()
@@ -224,5 +219,16 @@ public class BalahMovement : MonoBehaviour
     void Dead()
     {
         Debug.Log("die");
+    }
+
+    public void OnHit(float damage)
+    {
+        Debug.Log("Hit Balah");
+        OnDamaged(damage);
+    }
+
+    public void OnHit(float damage, Vector2 knockback)
+    {
+        throw new System.NotImplementedException();
     }
 }

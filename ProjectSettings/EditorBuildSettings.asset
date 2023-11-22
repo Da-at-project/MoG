@@ -12,16 +12,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/MainMenu2.unity
     guid: 1253776d31e8f7a418939841443a7509
   - enabled: 1
-    path: Assets/Scenes/Village1.unity
+    path: Assets/Scenes/test/Village1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/1/BalahRoom.unity
+    path: Assets/Scenes/BalahRoom.unity
     guid: 88b7bfa3393ef8444a5555f9d0dcbbf7
   - enabled: 1
-    path: Assets/Scenes/1/BalahHouse.unity
+    path: Assets/Scenes/BalahHouse.unity
     guid: c61ba8f62f79fa24cbea990ba5a2e5e9
   - enabled: 1
-    path: Assets/Scenes/1/Village(past).unity
+    path: Assets/Scenes/Village(past).unity
     guid: fae5c577087234646945431078169a33
   - enabled: 1
     path: Assets/Scenes/Scene19.unity
@@ -44,4 +44,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene9.unity
     guid: 4e855bc03cabdc644a6f2c115a00e4a0
+  - enabled: 1
+    path: Assets/Scenes/Scene20.unity
+    guid: dc7aaf893b70281428fd2215f65987e9
+  - enabled: 1
+    path: Assets/Scenes/Scene21-1.unity
+    guid: 707f9151ae9cde240ab156cb8068dfef
+  - enabled: 1
+    path: Assets/Scenes/Scene21.unity
+    guid: dc41c241431ee7d45b186c06adda6b7d
   m_configObjects: {}
