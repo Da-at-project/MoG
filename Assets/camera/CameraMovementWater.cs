@@ -9,7 +9,7 @@ public class CameraMovementWater : MonoBehaviour
 
     Vector3 targetPos;
 
-    float timer = 30f;
+    public float timer = 30f;
 
     void Start()
     {

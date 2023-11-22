@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 479431559}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -1771,8 +1771,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c9498ed36e15d4cad5c128e881718b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target1: {fileID: 1169071951}
+  target1: {fileID: 479431558}
   target2: {fileID: 397815748}
+  timer: 10
 --- !u!1 &1643081152
 GameObject:
   m_ObjectHideFlags: 0
