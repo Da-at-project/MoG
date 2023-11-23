@@ -9,8 +9,8 @@ public class SwordHitBox : MonoBehaviour
     public float thrust;
     public float knockTime;
 
-
     Collider2D swordCollider;
+    public GameObject effect;
     public Vector3 faceRight = new Vector3(1.5f, 0f, 0f);
     public Vector3 faceLeft = new Vector3(-5f, 0f, 0f);
     public Vector3 faceUp = new Vector3(0f, 0f, 0f);
@@ -33,41 +33,54 @@ public class SwordHitBox : MonoBehaviour
 
         IDamagable damagable = other.GetComponent<IDamagable>();
         if (damagable == null) return;
-
+        if(other.name == "MutantRat")
+        {
+            damagable.OnHit(swordDamage);
+            Debug.Log("mutant rat");
+        }
         Vector3 parentPos = gameObject.GetComponentInParent<Transform>().position;
         Vector2 dir = (Vector2)(other.gameObject.transform.position - parentPos).normalized;
         Vector2 knockback = dir * knockbackForce;
-        Debug.Log("hit : " + other);
-        
         damagable.OnHit(swordDamage, knockback);
-
+        Debug.Log("rat");
     }
 
     void IsFacing(float dir)
     {
+        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
         if (dir == 1)
         {
             gameObject.transform.localPosition = faceRight;
             swordCollider.offset = faceRight;
             swordCollider.transform.localEulerAngles = new Vector3(0, 0, 0);
+            effect.transform.localPosition = new Vector3(3f, -0.5f, 0f);
+            effect.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+            sr.flipX = true;
         } 
         if (dir == 2)
         {
             gameObject.transform.localPosition = faceLeft;
             swordCollider.offset = faceLeft;
             swordCollider.transform.localEulerAngles = new Vector3(0, 0, 0);
+            effect.transform.localPosition = new Vector3(-3f, -0.5f, 0f);
+            effect.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+            sr.flipX = false;
         }
         if (dir == 3)
         {
             gameObject.transform.localPosition = faceUp;
             swordCollider.offset = faceUp;
             swordCollider.transform.localEulerAngles = new Vector3(0, 0, 90);
+            effect.transform.localPosition = new Vector3(3f, -1.5f, 0f);
+            effect.transform.localEulerAngles = new Vector3(0f, 0f, 90f);
         }
         if (dir == 4)
         {
             gameObject.transform.localPosition = faceDown;
             swordCollider.offset = faceDown;
             swordCollider.transform.localEulerAngles = new Vector3(0, 0, 90);
+            effect.transform.localPosition = new Vector3(3f, -1.5f, 0f);
+            effect.transform.localEulerAngles = new Vector3(0f, 0f, 90f);
         }
         //Debug.Log(gameObject.transform.position);
     }

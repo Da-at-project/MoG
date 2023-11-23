@@ -26,18 +26,6 @@ public class BalahUi : MonoBehaviour
                 float maxSp = BalahData.instance.maxSP;
                 mySlider.value = curSp / maxSp;
                 break;
-            case InfoType.HpText:
-                if (EventSystem.current.IsPointerOverGameObject() == true ) // 마우스 커서 인식
-                    myText.text = string.Format("{0:F0} / {1:F0}", BalahData.instance.nowHP, BalahData.instance.maxHP);
-                else
-                    myText.text = string.Format("");
-                break;
-            case InfoType.SpText:
-                if (EventSystem.current.IsPointerOverGameObject() == true) // 마우스 커서 인식
-                    myText.text = string.Format("{0:F0} / {1:F0}", BalahData.instance.nowSP, BalahData.instance.maxSP);
-                else
-                    myText.text = string.Format("");
-                break;
         }
     }
     

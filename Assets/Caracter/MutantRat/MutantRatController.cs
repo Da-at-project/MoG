@@ -2,27 +2,33 @@ using PixelCrushers.DialogueSystem.Demo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MutantRatController : MonoBehaviour, IDamagable
 {
+    public Slider mySlider;
+    public Vector3 barPos;
+    public GameObject area;
+
     SpriteRenderer sr;
     Rigidbody2D rb;
     Animator anim;
-    BoxCollider2D bc;
 
     public float HP;
+    public float maxHP;
     public float Damage;
 
     public float speed;
+    public float dashSpeed;
     public float rec;
     public float acc;
-    Vector3 pos;
+    Vector3 targetDir;
 
     bool isDelay;
-    bool onMove;
+    bool onDash = false;
 
     float timer = 3f;
 
@@ -39,19 +45,18 @@ public class MutantRatController : MonoBehaviour, IDamagable
 
     void Awake()
     {
-        sr   = GetComponent<SpriteRenderer>();
-        rb   = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
-        bc   = GetComponentInChildren<BoxCollider2D>();
         state = State.IDEL;
     }
 
     void Update()
     {
-        if (State.IDEL   == state) Idel();
-        if (State.CHASE  == state) Chase();
+        if (State.IDEL == state) Idel();
+        if (State.CHASE == state) Chase();
         if (State.ATTACK == state) Attack();
-        if (State.DASH   == state) Dash();
+        if (State.DASH == state) Dash();
     }
 
     private void Idel()
@@ -63,6 +68,7 @@ public class MutantRatController : MonoBehaviour, IDamagable
         if (distance <= rec)
         {
             state = State.CHASE;
+            mySlider.gameObject.SetActive(true);
             anim.Play("MutantRatWalk");
         }
     }
@@ -103,16 +109,15 @@ public class MutantRatController : MonoBehaviour, IDamagable
     {
         if (timer == 0f)
         {
+            area.SetActive(true);
             anim.Play("MutantRatAttack");
 
             Transform player = GameObject.Find("Balah").GetComponent<BalahMovement>().transform;
             Vector3 dir = player.position - transform.position;
             if (dir.x > 0)
-            {
                 sr.flipX = true;
-                //bc.offset = 1.8f;
-            }
-            if (dir.x < 0) sr.flipX = false;
+            if (dir.x < 0)
+                sr.flipX = false;
 
             Debug.Log("Attack");
         }
@@ -120,6 +125,7 @@ public class MutantRatController : MonoBehaviour, IDamagable
         {
             timer = 0f;
             state = State.CHASE;
+            area.SetActive(false);
             return;
         }
 
@@ -128,23 +134,55 @@ public class MutantRatController : MonoBehaviour, IDamagable
 
     private void Dash()
     {
-        Debug.Log("Dash");
+        //Debug.Log(timer);
         if (timer == 0f)
         {
-            state = State.CHASE;
-            return;
-            anim.Play("MutantRatAttack");
+            anim.Play("MutantRatCharge");
+
+            Transform player = GameObject.Find("Balah").GetComponent<BalahMovement>().transform;
+            targetDir = (player.position - transform.position).normalized;
+            if (targetDir.x > 0) sr.flipX = true;
+            else sr.flipX = false;
         }
-        if (timer >= 3f)
+        if (timer >= 0.8f && !onDash)
         {
+            anim.Play("MutantRatDash");
+            onDash = true;
+        }
+        else if (timer >= 0.8f && onDash)
+        {
+            rb.AddForce(targetDir * dashSpeed * Time.fixedDeltaTime);
+        }
+        if (timer >= 1.8f)
+        {
+            onDash = false;
             timer = 0f;
             state = State.CHASE;
+            anim.Play("MutantRatWalk");
             return;
         }
 
-
-
         timer += Time.deltaTime;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        IDamagable damagable = collision.collider.GetComponent<IDamagable>();
+        if (damagable != null && collision.gameObject.name == "Balah")
+        {
+            damagable.OnHit(20f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        IDamagable damagable = collision.GetComponent<IDamagable>();
+        if (damagable != null && collision.gameObject.name == "Balah")
+        {
+            damagable.OnHit(20f);
+        }
     }
 
     private void die()
@@ -155,10 +193,17 @@ public class MutantRatController : MonoBehaviour, IDamagable
     public void OnHit(float damage)
     {
         HP -= damage;
+        if (HP < 0)
+            Destroy(gameObject);
     }
 
     public void OnHit(float damage, Vector2 knockback)
     {
         throw new NotImplementedException();
+    }
+
+    private void LateUpdate()
+    {
+        mySlider.value = HP / maxHP;
     }
 }

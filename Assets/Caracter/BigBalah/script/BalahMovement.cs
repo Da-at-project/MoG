@@ -20,6 +20,8 @@ public class BalahMovement : MonoBehaviour , IDamagable
     public bool invinc = false;
     public bool attack = false;
     public bool canAttack = true;
+    bool isAttack = false;
+    float timer = 0f;
 
     public Vector2 inputVec;
     public float defaultSpeed;
@@ -66,6 +68,18 @@ public class BalahMovement : MonoBehaviour , IDamagable
 
     void Move()
     {
+        if (isAttack)
+        {
+            if (timer <= 0.45f)
+            {
+                timer += Time.fixedDeltaTime;
+                return;
+            }
+            else
+            {
+                isAttack = false;
+            }
+        }
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
 
@@ -156,6 +170,8 @@ public class BalahMovement : MonoBehaviour , IDamagable
         }
         anim.SetFloat("v", anim.GetFloat("attackV"));
 
+        isAttack = true;
+        timer = 0f;
         anim.Play("Attack");
     }
 
@@ -200,7 +216,7 @@ public class BalahMovement : MonoBehaviour , IDamagable
 
     void OnDamaged(float damage)
     {
-        nowHP -= damage;
+        BalahData.instance.nowHP -= damage;
         if (nowHP <= 0)
             Dead();
         gameObject.layer = 11;
